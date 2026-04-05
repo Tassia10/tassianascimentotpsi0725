@@ -1,0 +1,41 @@
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 4552,
+  "protocol": "http",
+  "name": "Exercicio7",
+  "stubs": [
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 409,
+            "body": { "error": "email_exists" }
+          }
+        }
+      ],
+      "predicates": [
+        {
+          "contains": { "body": "exists@example.com" }
+        }
+      ]
+    },
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 201,
+            "body": { "id": 123, "status": "created" }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+### 
+POST http://localhost:4552/api/users
+Content-Type: application/json
+
+{ "email": "novo@test.com" }

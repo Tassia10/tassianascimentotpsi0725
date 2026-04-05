@@ -1,0 +1,46 @@
+POST http://localhost:2525/imposters
+
+{
+    "port": 4545,
+    "protocol": "http",
+    "name": "exe0",
+    "stubs": [
+        {
+            "responses": [
+                {
+                    "is": {
+                        "statusCode": 200,
+                        "body": {
+                            "nome": "Tássia",
+                            "idade": 39,
+                            "curso": "TPSICAS"
+                        }
+                    }
+                }
+            ],
+            "predicates": [
+                {
+                    "and": [
+                        {
+                            "equals": {
+                                "method": "POST",
+                                "path": "/test",
+                                "headers": {
+                                    "Content-Type": "application/json"
+                                }
+                            }
+                        },
+                        {
+                            "not": {
+                                "contains": {
+                                    "body": "requiredField"
+                                },
+                                "caseSensitive": true
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

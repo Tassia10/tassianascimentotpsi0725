@@ -1,0 +1,64 @@
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 4556,
+  "protocol": "http",
+  "name": "Exercicio10",
+  "stubs": [
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 409,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "error": "duplicate_task",
+              "message": "Esta tarefa já existe."
+            }
+          }
+        }
+      ],
+      "predicates": [
+        {
+          "contains": {
+            "body": {
+              "title": "duplicate"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 201,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "id": 999,
+              "status": "created"
+            }
+          }
+        }
+      ],
+      "predicates": [
+        {
+          "equals": {
+            "method": "POST",
+            "path": "/api/tasks"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+
+### 
+POST http://localhost:4556/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Estudar Mountebank"
+}

@@ -1,0 +1,4 @@
+{"level":"info","message":"[mb:2525] mountebank v2.9.3 now taking orders - point your browser to http://localhost:2525/ for help","timestamp":"2026-04-05T09:23:36.498Z"}
+{"level":"info","message":"[mb:2525] POST /imposters","timestamp":"2026-04-05T09:24:03.243Z"}
+{"level":"info","message":"[http:4560 Exercicio15] Open for business...","timestamp":"2026-04-05T09:24:03.250Z"}
+{"level":"info","message":"[http:4560 Exercicio15] ::ffff:127.0.0.1:53123 => GET /rota/inexistente","timestamp":"2026-04-05T09:24:19.958Z"}

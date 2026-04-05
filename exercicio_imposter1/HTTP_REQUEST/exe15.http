@@ -1,0 +1,37 @@
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 4560,
+  "protocol": "http",
+  "name": "Exercicio15_16",
+  "stubs": [
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 404,
+            "headers": { 
+              "Content-Type": "application/json" 
+            },
+            "body": {
+              "error": "not_found",
+              "message": "O caminho não existe."
+            }
+          }
+        }
+      ],
+      "predicates": [
+        {
+          "equals": {
+            "method": "GET"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+###
+
+GET http://localhost:4560/rota/inexistente

@@ -1,0 +1,41 @@
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 4553,
+  "protocol": "http",
+  "name": "Exercicio8",
+  "stubs": [
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 400,
+            "body": { "error": "missing_value" }
+          }
+        }
+      ],
+      "predicates": [
+        {
+          "not": { "contains": { "body": "value" } }
+        }
+      ]
+    },
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 201,
+            "body": { "status": "recorded" }
+          }
+        }
+      ]
+    }
+  ]
+}
+
+### 
+POST http://localhost:4553/api/temperature
+Content-Type: application/json
+
+{ "sensor": "quarto" }

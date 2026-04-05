@@ -1,0 +1,35 @@
+POST http://localhost:2525/imposters
+Content-Type: application/json
+
+{
+  "port": 4548,
+  "protocol": "http",
+  "name": "Exercicio3",
+  "stubs": [
+    {
+      "responses": [
+        {
+          "is": {
+            "statusCode": 200,
+            "headers": { "Content-Type": "application/json" },
+            "body": {
+              "results": []
+            }
+          }
+        }
+      ],
+      "predicates": [
+        {
+          "equals": {
+            "method": "GET",
+            "path": "/api/cars"
+          }
+        }
+      ]
+    }
+  ]
+}
+
+###
+
+GET http://localhost:4547/api/cars
