@@ -1,0 +1,17 @@
+body{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #ffd6e0;
+}
+.bg-fofo {
+    background-color: #ffd6e0;
+}
+.banner {
+    background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+    padding: 60px;
+    color: white;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+.form-fofo {
+    max-width: 500px;
+}
